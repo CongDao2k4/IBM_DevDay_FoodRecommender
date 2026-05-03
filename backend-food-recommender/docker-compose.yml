@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  oracle:
+    image: gvenzl/oracle-free:23.26.1-slim
+    container_name: food-service-oracle23ai
+    restart: always
+    environment:
+      ORACLE_PASSWORD: Cong23122k4
+      ORACLE_DATABASE: FoodPDB
+      APP_USER: FoodPDB_ADMIN
+      APP_USER_PASSWORD: Cong23122k4
+    ports:
+      - "1521:1521"
+
+    healthcheck:
+      test: ["CMD", "healthcheck.sh"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+      start_period: 10s
+
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+      - ./docker/oracle/01_vector_config.sql:/container-entrypoint-initdb.d/01_vector_config.sql
+
+volumes:
+  oracle_data:

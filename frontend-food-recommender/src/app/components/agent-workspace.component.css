@@ -1,0 +1,177 @@
+/* Custom styles for AgentWorkspaceComponent */
+/* Most styling is handled by Tailwind CSS classes in the template */
+
+/* Smooth scrolling for chat container */
+#chatContainer {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for chat and recommendations */
+.overflow-y-auto::-webkit-scrollbar {
+  width: 8px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 4px;
+}
+
+.overflow-y-auto::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Chat message animations */
+.flex.justify-end,
+.flex.justify-start {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading dots animation */
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
+  }
+}
+
+.animate-bounce {
+  animation: bounce 1.4s infinite ease-in-out both;
+}
+
+/* Message bubble hover effect */
+.rounded-2xl {
+  transition: all 0.2s ease-in-out;
+}
+
+.rounded-2xl:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Food card hover effect */
+.bg-white.rounded-lg {
+  transition: all 0.3s ease-in-out;
+}
+
+.bg-white.rounded-lg:hover {
+  transform: translateY(-2px);
+}
+
+/* Input focus effect */
+input[type="text"]:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Button transitions */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Warning badge pulse effect */
+.border-red-300 {
+  animation: warningPulse 2s ease-in-out infinite;
+}
+
+@keyframes warningPulse {
+  0%, 100% {
+    border-color: rgb(252, 165, 165);
+  }
+  50% {
+    border-color: rgb(239, 68, 68);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .w-1\/2 {
+    width: 100%;
+  }
+  
+  .flex.overflow-hidden {
+    flex-direction: column;
+  }
+  
+  .border-r {
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+  }
+}
+
+/* Print styles */
+@media print {
+  button {
+    display: none;
+  }
+  
+  .shadow-lg,
+  .shadow-md,
+  .shadow-sm {
+    box-shadow: none;
+  }
+  
+  .border-r {
+    border-right: 1px solid #000;
+  }
+}
+
+/* Accessibility: Focus visible styles */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Empty state animation */
+.flex.flex-col.items-center.justify-center svg {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Made with Bob */

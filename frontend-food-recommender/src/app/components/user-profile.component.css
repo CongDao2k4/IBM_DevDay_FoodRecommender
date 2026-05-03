@@ -1,0 +1,77 @@
+/* Additional custom styles for UserProfileComponent */
+/* Most styling is handled by Tailwind CSS classes in the template */
+
+/* Smooth transitions for form elements */
+input[type="text"],
+input[type="number"] {
+  transition: all 0.2s ease-in-out;
+}
+
+/* Custom focus styles for better accessibility */
+input[type="text"]:focus,
+input[type="number"]:focus {
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* Checkbox hover effect */
+input[type="checkbox"]:hover {
+  transform: scale(1.05);
+}
+
+/* Smooth checkbox transition */
+input[type="checkbox"] {
+  transition: all 0.15s ease-in-out;
+}
+
+/* Button hover effects */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Card shadow on hover */
+.bg-white {
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .max-w-4xl {
+    padding: 1rem;
+  }
+}
+
+/* Print styles */
+@media print {
+  button {
+    display: none;
+  }
+  
+  .shadow-lg {
+    box-shadow: none;
+  }
+}
+
+/* Made with Bob */

@@ -1,0 +1,208 @@
+/* Dashboard Component Styles */
+/* Most styling is handled by Tailwind CSS classes in the template */
+
+/* Smooth transitions for layout changes */
+.flex {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Custom scrollbar for sidebar */
+aside::-webkit-scrollbar {
+  width: 6px;
+}
+
+aside::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+aside::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 3px;
+}
+
+aside::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Navbar gradient animation */
+nav {
+  position: relative;
+  overflow: hidden;
+}
+
+nav::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+nav:hover::before {
+  left: 100%;
+}
+
+/* Message notification animations */
+.bg-green-50,
+.bg-red-50 {
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Sidebar header styling */
+aside h2 {
+  position: relative;
+}
+
+aside h2::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 40px;
+  height: 3px;
+  background: linear-gradient(to right, #3b82f6, #8b5cf6);
+  border-radius: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  aside {
+    width: 100%;
+    min-width: auto;
+    border-right: none;
+    border-bottom: 1px solid #e5e7eb;
+    max-height: 50vh;
+  }
+
+  .flex.overflow-hidden {
+    flex-direction: column;
+  }
+
+  main {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 768px) {
+  nav h1 {
+    font-size: 1.25rem;
+  }
+
+  nav p {
+    display: none;
+  }
+
+  aside {
+    max-height: 40vh;
+  }
+
+  main {
+    height: 60vh;
+  }
+}
+
+/* Focus visible styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Button hover effects */
+button {
+  transition: all 0.2s ease-in-out;
+}
+
+button:hover:not(:disabled) {
+  transform: scale(1.05);
+}
+
+button:active:not(:disabled) {
+  transform: scale(0.95);
+}
+
+/* User badge animation */
+.bg-gray-700 {
+  transition: all 0.3s ease-in-out;
+}
+
+.bg-gray-700:hover {
+  background-color: #4b5563;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar section transitions */
+aside > div {
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Print styles */
+@media print {
+  nav {
+    background: #1f2937 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  button {
+    display: none;
+  }
+
+  .shadow-lg,
+  .shadow-md {
+    box-shadow: none;
+  }
+
+  aside {
+    border-right: 1px solid #000;
+  }
+}
+
+/* Dark mode support (if needed in future) */
+@media (prefers-color-scheme: dark) {
+  /* Add dark mode styles here if needed */
+}
+
+/* Made with Bob */
